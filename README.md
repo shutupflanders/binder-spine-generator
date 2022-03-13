@@ -44,6 +44,9 @@ docker run -v ${pwd}/output:/output -v ${pwd}/input:/input binder-spine-generato
 
 ```
 
+Your SVG will be generated in the `output` directory as `image.svg`.
+
+If something's not quite right, please check the provided images and configuration.
 
 ## Development
 
