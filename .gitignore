@@ -1,1 +1,4 @@
 vendor
+input/*
+!input/example.config.json
+output/*

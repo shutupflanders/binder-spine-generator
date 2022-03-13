@@ -14,9 +14,6 @@ RUN docker-php-ext-install \
         zip \
         xml
 
-# Copy the application files
-COPY . /app
-
 # Install Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
@@ -26,12 +23,12 @@ RUN mkdir /output
 
 WORKDIR /app
 
-# Up the memory limit
 RUN sed -E -i -e 's/memory_limit = 128M/memory_limit = 1024M/' /usr/local/etc/php/php.ini-production
 RUN mv /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
-# Install Composer packages
-RUN composer install -q -n
 
-# Run the get-results command and accept args from stdin
-ENTRYPOINT ["php", "/app/run.php"]
+ADD ./docker/docker-entrypoint-dev.sh /
+RUN chmod +x /docker-entrypoint-dev.sh
+
+EXPOSE 80
+CMD ["/docker-entrypoint-dev.sh"]

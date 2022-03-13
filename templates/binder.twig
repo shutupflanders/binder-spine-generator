@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3508 295 "  width="3508" height="295">
-  <svg viewBox="0 0 3508 295">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {{ document.width }} {{ document.height }} "  width="{{ document.width }}" height="{{ document.height }}">
+  <svg viewBox="0 0 {{ document.width }} {{ document.height }}">
 
     <image id="banner"
-           href="{{ banner }}"
-           width="3508"
-           y="-400"
+           href="{{ images.banner.source }}"
+           width="{{ document.width }}"
+           y="{{ images.banner.y }}"
            preserveAspectRatio="xMidYMid slice"
            clip-path="url(#circleView)"
     ></image>
   </svg>
   <image
           id="logo"
-          href="{{ logo }}"
-          height="295"
+          href="{{ images.logo.source }}"
+          height="{{ document.height }}"
+          width="{{ images.logo.width }}"
           preserveAspectRatio="xMidYMid slice"
           clip-path="url(#circleView)"
   ></image>
   <image
           id="icon"
-          href="{{ icon }}"
-          x="3200"
-          y="35"
-          transform="rotate(90, 3200, 35)"
-          width="233" height="295"
+          href="{{ images.icon.source }}"
+          x="{{ images.icon.x }}"
+          y="{{ images.icon.y }}"
+          transform="rotate(90, {{ images.icon.x }}, {{ images.icon.y }})"
+          width="{{ images.icon.width }}" height="{{ document.height }}"
   ></image>
+
   <style>
     tspan { white-space:pre }
-    .t0 { font-size: 72px;fill: #ffffff;font-family: "Gill  Sans " }
+    .t0 { font-size:50%; fill: #ffffff;font-family: "Gill  Sans " }
   </style>
+
   <text
-          x="3400"
-          y="285" id="text" style="paint-order:stroke fill markers;stroke: #000000;stroke-width: 10;stroke-linejoin: round;" transform="rotate(270, 3400, 285)">
-    <tspan class="t0">{{ set_name }}</tspan>
+          id="text"
+          x="{{ label.x }}"
+          y="{{ label.y }}"
+          style="paint-order:stroke fill markers;stroke: #000000;stroke-width: 10;stroke-linejoin: round;"
+          transform="rotate(270, {{ label.x }}, {{ label.y }})"
+  >
+    <tspan class="t0" >{{ label.text }}</tspan>
   </text>
 </svg>

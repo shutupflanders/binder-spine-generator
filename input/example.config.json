@@ -1,0 +1,19 @@
+{
+  "document": {
+    "height": 295,
+    "width": 3508
+  },
+  "banner": {
+    "filename": "banner.jpg",
+    "y": 0
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "icon": {
+    "filename": "icon.png"
+  },
+  "label": {
+    "text": "SWSH06"
+  }
+}
